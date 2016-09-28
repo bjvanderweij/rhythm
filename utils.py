@@ -12,9 +12,18 @@ def grid_to_iois(grid):
     
     return onsets[0], tuple([b - a for a, b in zip(onsets, onsets[1:])])
 
+def iois_to_grid(offset, iois):
+
+    onsets = iois_to_onsets(offset, iois)
+    grid = [0 for i in range(offset + sum(iois))]
+    for onset in onsets:
+        grid[onset] = 1
+
+    return grid 
+
 def iois_to_onsets(offset, iois):
 
-    return tuple(np.cumsum((offset, ) + iois))
+    return tuple(np.cumsum((offset, ) + iois[:-1]))
 
 def repeat_ioi_pattern(offset, iois, times):
 

@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
     if args.phase is None:
         rhythms = all_rhythms(args.N)
-        # Skip first rhythm consisting of all zeros
+        # Skip first rhythm which does not contain any onsets
         next(rhythms)
     else:
         def add_first_onset(rhythm):

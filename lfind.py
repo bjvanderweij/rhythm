@@ -3,7 +3,7 @@ import argparse, sys
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description=
-            'Print lines in reference file corresponding the the numbers in input files')
+            'Print lines in reference file corresponding to the numbers in input files')
     parser.add_argument('input_files', nargs='*', default=None)
     parser.add_argument('reference_file')
     args = parser.parse_args()

@@ -7,7 +7,6 @@ parser = argparse.ArgumentParser()
 
 parser.add_argument('output_path',
     help='Path to the output file')
-
 parser.add_argument('--ioi',
     action='store_true',
     help='Treat input as IOIs')
@@ -27,9 +26,6 @@ parser.add_argument('--format',
     default='midi',
     choices=('mid', 'midi', 'ogg', 'wav', 'mp3'),
     help='Midi pitch')
-parser.add_argument('--count-in',
-    action='store_true'
-)
 parser.add_argument('--click-track',
     default=False,
     action='store_true'
@@ -41,9 +37,6 @@ parser.add_argument('--period',
 parser.add_argument('--pulse',
     default=1,
     type=int,
-)
-parser.add_argument('--downbeat',
-    action='store_true'
 )
 parser.add_argument('--click-track-phase',
     type=int,
@@ -96,7 +89,6 @@ def write_click_track(midi_file, duration, phase=0, end_time=0, track=0, velocit
             midi_file.addNote(track, channel, lo_woodblock, time, pulse, int(0.75 * velocity))
         if metrical_time % period == 0:
             midi_file.addNote(track, channel, hi_woodblock, time, period, velocity)
-
 
 if __name__ == '__main__':
     args = parser.parse_args()

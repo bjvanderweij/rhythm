@@ -1,5 +1,3 @@
-# Generate all twelve point rhythms
-
 from itertools import product, chain
 from functools import reduce
 from utils import grid_to_iois
